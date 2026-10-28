@@ -4,6 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#26070d">
+<meta name="robots" content="noindex,nofollow">
+<meta name="color-scheme" content="dark">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta property="og:type" content="website">
 <title>For Damilola 🎉</title>
 <meta name="description" content="A little birthday surprise, made just for you.">
 <meta property="og:title" content="For Damilola 🎉">
@@ -360,6 +367,24 @@ html{-webkit-text-size-adjust:100%}
 @media(max-width:800px){.topbar{gap:6px;padding:10px 16px;padding-top:calc(10px + env(safe-area-inset-top,0px))}.brand{font-size:22px}.nav button{padding:7px 11px}}
 @media(hover:none){.btn:hover{transform:none;background:transparent}.btn.primary:hover{background:var(--red)}.photo-card:hover{transform:rotate(var(--r,-2deg)) scale(1);z-index:auto}.gift-card:hover{transform:none}.gift-card:nth-child(2):hover{transform:rotate(1deg)}.gift-card:nth-child(3):hover{transform:rotate(-1deg)}}
 body.lite .grain{display:none}body.lite .k-puppet{filter:none}body.lite .lan{animation:none}body.lite .topbar{backdrop-filter:none;background:#160509}
+
+/* ===== Final polish ===== */
+html{background:#160509;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+body{touch-action:manipulation;padding-bottom:calc(var(--kw) * .6)}
+h1,h2,h3{text-wrap:balance}p{text-wrap:pretty}
+.sky,.pitch,.candles,.balloon,.photo-card,.gate-btn{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+.nav button{min-height:38px}
+#kpeek{top:env(safe-area-inset-top,0px)}
+#lightbox::after{content:"tap anywhere to close";color:var(--muted);font:600 11px "DM Sans",sans-serif;letter-spacing:2px;text-transform:uppercase}
+.finale .letter-tools .btn.primary{padding-left:32px;padding-right:32px}
+@media(max-width:480px){.finale .letter-tools{flex-direction:column;align-items:center}.finale .letter-tools .btn{width:100%;max-width:280px}}
+
+/* ===== All nav buttons visible ===== */
+@media(max-width:800px){
+.nav{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:5px;overflow:visible;flex-wrap:wrap}
+.nav button{flex-shrink:1;min-width:0;padding:8px 2px;min-height:36px;text-align:center;font-size:12px;white-space:nowrap;border-color:var(--border)}
+}
+@media(max-width:360px){.nav button{font-size:11px}}
 </style>
 </head>
 <body>
@@ -387,7 +412,6 @@ body.lite .grain{display:none}body.lite .k-puppet{filter:none}body.lite .lan{ani
     <button class="active" data-page="home">Countdown</button>
     <button data-page="gallery">Memories</button>
     <button data-page="letter">A Letter</button>
-    <button data-page="gifts">Envelopes</button>
     <button data-page="cake">Cake</button>
     <button data-page="play">Play</button>
     <button data-page="goat">GOAT</button>
@@ -399,7 +423,7 @@ body.lite .grain{display:none}body.lite .k-puppet{filter:none}body.lite .lan{ani
 <button id="music" hidden>♪ Music</button>
 <main>
 <section class="page active" id="home">
-  <div class="section-heading"><h2>Not long <span class="accent">now.</span></h2><p class="zh">十八岁生日快乐 · shíbā suì shēngrì kuàilè</p></div>
+  <div class="section-heading"><h2>Not long <span class="accent">now.</span></h2><p class="zh" lang="zh">十八岁生日快乐 · shíbā suì shēngrì kuàilè</p></div>
   <div class="countdown-section">
     <p id="countdown-message">Time left till you officially become a problem</p>
     <div class="countdown">
@@ -429,51 +453,15 @@ body.lite .grain{display:none}body.lite .k-puppet{filter:none}body.lite .lan{ani
       <p>Eat the cake, ignore whatever is stressing you for one day, and let people spoil you a little. It will all still be there tomorrow.</p>
       <p>Happy birthday, Dami. Make this year loud.</p>
       <div class="letter-signature">Your friend, Yusuf</div>
-      <p style="margin-top:18px">P.S. I know you are missing home. There is a little something for that in your red envelopes.</p>
+      <p style="margin-top:18px">P.S. I know you are missing home. Missing it does not mean you are not coping, it means home mattered. Call your people today, eat something that tastes like back home, and remember you are not here alone.</p>
     </div>
     <div class="letter-tools">
       <button class="btn primary" onclick="confetti()">Celebrate</button>
-      <button class="btn gold" onclick="goToPage('gifts')">Open your red envelopes</button>
+      <button class="btn gold" onclick="goToPage('cake')">Skip to the cake 🎂</button>
     </div>
   </div>
 </section>
 
-<section class="page" id="gifts">
-  <div class="section-heading">
-    <h2>Four red <span class="accent">envelopes.</span></h2>
-    <p>红包 (hóngbāo): a little luck in every one. Tap to open.</p>
-  </div>
-  <div class="gift-grid">
-    <div class="gift-card">
-      <div class="gift-icon">喜</div>
-      <h3>Open when you need a smile</h3>
-      <p>For the days that feel heavier than they should.</p>
-      <button class="btn primary" data-gift>Open it</button>
-      <div class="gift-reveal">Reminder for the bad days: you are doing better than it feels like. Go and drink some water, then text me.</div>
-    </div>
-    <div class="gift-card">
-      <div class="gift-icon">福</div>
-      <h3>A promise</h3>
-      <p>Small, honest and meant.</p>
-      <button class="btn primary" data-gift>Open it</button>
-      <div class="gift-reveal">I promise to hype you up in public, tell you when the outfit is not it, and show up when it actually matters.</div>
-    </div>
-    <div class="gift-card">
-      <div class="gift-icon">家</div>
-      <h3>Open when you miss home</h3>
-      <p>Because it hits at random times.</p>
-      <button class="btn primary" data-gift>Open it</button>
-      <div class="gift-reveal">Missing home does not mean you are not coping. It means home mattered. Call your people today, even if it is just to hear them complain. Eat something that tastes like back home. You are not here alone, and you are not forgotten. Take it one day at a time, you are doing well.</div>
-    </div>
-    <div class="gift-card">
-      <div class="gift-icon">吃</div>
-      <h3>One last thing</h3>
-      <p>Saved for the end.</p>
-      <button class="btn primary" data-gift>Open it</button>
-      <div class="gift-reveal">Real gift: a meal on me, you pick the place. Keep it reasonable, abeg. Happy birthday, Dami!</div>
-    </div>
-  </div>
-</section>
 
 <section class="page" id="wishes">
   <div class="section-heading">
@@ -526,10 +514,10 @@ body.lite .grain{display:none}body.lite .k-puppet{filter:none}body.lite .lan{ani
     <p class="stop">And this is where the presentation stops 😌</p>
     <h2>Happy 18th, <span class="accent">Dami!</span></h2>
     <p class="bless">Congratulations on your new age. May God continue to bless you and make you stronger and filled with joy, with many more celebrations to come ahead.</p>
-    <p class="zh">心想事成 · 万事如意</p>
+    <p class="zh" lang="zh">心想事成 · 万事如意</p>
     <div class="finale-badge">18<small>十八岁 · Mini adult</small></div>
     <ul class="checks" id="checks"></ul>
-    <div class="letter-tools"><button class="btn primary" id="fw">More fireworks</button><button class="btn gold" id="replay">Watch it again</button><button class="btn primary" id="roll">Roll credits 🎬</button></div>
+    <div class="letter-tools"><button class="btn primary" id="roll">Roll credits 🎬</button><button class="btn gold" id="fw">More fireworks</button><button class="btn gold" id="replay">Watch it again</button></div>
   </div>
 </section>
 </main>
@@ -548,10 +536,10 @@ body.lite .grain{display:none}body.lite .k-puppet{filter:none}body.lite .lan{ani
     <p class="o-s">photography</p><p class="o-n">Everyone who caught you unaware</p>
     <p class="o-s">blessings by</p><p class="o-n">God, your family, your friends<br>and everybody who loves you</p>
     <p class="o-s">no balloons were harmed</p><p class="o-r">(okay, fifteen were popped)</p>
-    <p class="o-s">directed, written &amp; built by</p><p class="o-n o-gold">elli_ot Designs</p>
-    <p class="o-zh">心想事成 · 万事如意</p><p class="o-r">may every wish come true, may everything go your way</p>
+    <p class="o-s">directed, written &amp; built by</p><p class="o-n o-gold">Louis Designs</p>
+    <p class="o-zh" lang="zh">心想事成 · 万事如意</p><p class="o-r">may every wish come true, may everything go your way</p>
   </div></div>
-  <div class="o-final"><p class="o-f1">Happy 18th birthday, Dami 🎂</p><p class="o-zh">生日快乐</p><button class="btn gold" id="o-again">Watch it again</button></div>
+  <div class="o-final"><p class="o-f1">Happy World Dami Day 🎉🎉🎉🎉</p><p class="o-zh" lang="zh">生日快乐</p><button class="btn gold" id="o-again">Watch it again</button></div>
   <button class="o-skip" id="o-skip">Skip</button>
 </div>
 <div id="kbubble" aria-hidden="true"></div>
@@ -559,7 +547,7 @@ body.lite .grain{display:none}body.lite .k-puppet{filter:none}body.lite .lan{ani
 <script>
 (function(){
   // ===== EDIT ME =====
-  // PHOTOS: put the pictures in the "photos" folder as 1, 2, 3 ... 12 (jpg, jpeg, png or webp all work).
+  // PHOTOS: put the pictures in the "photos" folder as 1, 2, 3 ... 13 (jpg, jpeg, png or webp all work).
   var PHOTOS = [
     {src:'photos/1', caption:'Random Day in class'},
     {src:'photos/2', caption:'You remember this Day right 🌚'},
@@ -571,14 +559,16 @@ body.lite .grain{display:none}body.lite .k-puppet{filter:none}body.lite .lan{ani
     {src:'photos/8', caption:'😂😂'},
     {src:'photos/9', caption:'10 everyday'},
     {src:'photos/10', caption:'Unaware'},
-    {src:'photos/11', caption:'You go fit model sha'},
-    {src:'photos/12', caption:'One more 📸'}
+    {src:'photos/11', caption:'Ballerrrrrrr'},
+    {src:'photos/12', caption:'You go fit model sha 😂😂'},
+    {src:'photos/13', caption:'Last one'}
   ];
   // AUDIO: put your three files in the "audio" folder with these names (or change the names here).
   // If a file is missing, a built-in stand-in sound plays instead.
-  var MUSIC_SRC = 'audio/birthday.mp3';       // loops after she taps "Come in"
+  var MUSIC_SRC = ['audio/birthday2.mp3','audio/birthday.mp3'];  // loops after she taps "Come in". Tries each name in order, so either file name works
   var FIREWORKS_SRC = 'audio/fireworks.mp3';  // plays when fireworks launch (opening and finale)
   var SIU_SRC = 'audio/siu.mp3';              // plays when he lands
+  var CREDITS_SRC = 'audio/credits.mp3';       // plays during the ending credits and keeps looping until she leaves
   var SIU_DELAY = 1700;                       // ms after the tap. Raise or lower to line the shout up with the landing
   // ====================
   var done = {};
@@ -600,6 +590,10 @@ body.lite .grain{display:none}body.lite .k-puppet{filter:none}body.lite .lan{ani
 
   // Gallery
   var grid = document.getElementById('gallery-grid');
+  var pq = [], pActive = 0, pGo = false;
+  function pPump(){ if(!pGo) return; while(pActive < 3 && pq.length){ pActive++; pq.shift()() } }
+  function pStart(){ setTimeout(function(){pGo = true; pPump()}, 700) }
+  if(document.readyState === 'complete') pStart(); else window.addEventListener('load', pStart);
 
   if(PHOTOS.length){
     grid.innerHTML = '';
@@ -610,30 +604,22 @@ body.lite .grain{display:none}body.lite .k-puppet{filter:none}body.lite .lan{ani
       var im = a.querySelector('img');
       im.alt = p.caption || 'Birthday memory';
       var exts = ['jpg','jpeg','png','webp','JPG','JPEG','PNG'], ei = 0, base = p.src.replace(/\.\w+$/, '');
-      im.onload = function(){p.resolved = im.src; im.classList.add('ready')};
+      var settled = false;
+      function settle(){ if(settled) return; settled = true; pActive--; pPump() }
+      im.onload = function(){p.resolved = im.src; im.classList.add('ready'); settle()};
       im.onerror = function(){
         ei++;
         if(ei < exts.length){im.src = base + '.' + exts[ei]; return}
         console.warn('Missing photo: ' + base);
         a.querySelector('.photo-frame').innerHTML = '<div class="photo-placeholder"><span class="symbol">✧</span><p>Photo coming soon</p></div>';
-        a.classList.add('empty');
+        a.classList.add('empty'); settle();
       };
-      im.src = base + '.' + exts[0];
+      pq.push(function(){ im.src = base + '.' + exts[0] }); pPump();
       a.addEventListener('click', function(){if(!a.classList.contains('empty')) openBox(p)});
       a.querySelector('.photo-caption').textContent = p.caption || '';
       grid.appendChild(a);
     });
   }
-
-  // Gifts
-  document.querySelectorAll('[data-gift]').forEach(function(b){
-    b.addEventListener('click', function(){
-      var r = b.parentElement.querySelector('.gift-reveal');
-      var open = r.classList.toggle('open');
-      b.textContent = open ? 'Close' : 'Open it';
-      if(open){done.gifts = (done.gifts || 0) + 1; confetti()}
-    });
-  });
 
   // Countdown
   var msg = document.getElementById('countdown-message');
@@ -697,7 +683,7 @@ body.lite .grain{display:none}body.lite .k-puppet{filter:none}body.lite .lan{ani
       c.addEventListener('click', function(){
         if(this.classList.contains('out')) return;
         this.classList.add('out'); lit--;
-        if(!lit){done.cake = 1; cm.textContent = 'May God grant all your heart desires 🙏 心想事成'; confetti();}
+        if(!lit){done.cake = 1; cm.textContent = 'May God grant all your heart desires 🙏 心想事成'; confetti(); fireworks(12);}
         else cm.textContent = lit + ' left, keep blowing';
       });
       cd.appendChild(c);
@@ -735,13 +721,14 @@ body.lite .grain{display:none}body.lite .k-puppet{filter:none}body.lite .lan{ani
   var mb = document.getElementById('music'), A = {};
   function loadAudio(key, src, loop){
     if(!src) return;
+    var list = [].concat(src), i = 0;
     var a = new Audio(); a.preload = 'auto'; a.loop = !!loop; if(key === 'music') a.volume = .6;
-    a.addEventListener('error', function(){A[key] = null});
-    a.src = src; A[key] = a;
+    a.addEventListener('error', function(){ i++; if(i < list.length) a.src = list[i]; else A[key] = null });
+    a.src = list[0]; A[key] = a;
   }
-  loadAudio('music', MUSIC_SRC, true); loadAudio('fw', FIREWORKS_SRC); loadAudio('siu', SIU_SRC);
+  loadAudio('music', MUSIC_SRC, true); loadAudio('fw', FIREWORKS_SRC); loadAudio('siu', SIU_SRC); loadAudio('credits', CREDITS_SRC, true);
   function unlockAudio(){
-    ['music','fw','siu'].forEach(function(k){
+    ['music','fw','siu','credits'].forEach(function(k){
       var a = A[k]; if(!a) return;
       a.muted = true;
       var pr = a.play();
@@ -794,7 +781,7 @@ body.lite .grain{display:none}body.lite .k-puppet{filter:none}body.lite .lan{ani
   }
   document.getElementById('pitch').addEventListener('click', siu);
   function fillChecks(){
-    var items = [['Opened the red envelopes', done.gifts >= 4], ['Blew out the candles', done.cake], ['Popped the balloons', done.play], ['Respected the GOAT', done.siu]];
+    var items = [['Blew out the candles', done.cake], ['Popped the balloons', done.play], ['Respected the GOAT', done.siu]];
     document.getElementById('checks').innerHTML = items.map(function(i){return '<li class="' + (i[1] ? 'on' : '') + '">' + i[0] + '</li>'}).join('');
   }
   function fireworks(n){
@@ -936,6 +923,22 @@ body.lite .grain{display:none}body.lite .k-puppet{filter:none}body.lite .lan{ani
       o.connect(g); g.connect(c.destination); o.start(t); o.stop(t + 4.6);
     });
   };
+  var creditsOn = false;
+  window.kPlayCredits = function(startAfter){
+    var c = A.credits; if(!c) return false;
+    window.kMusicDone = true; creditsOn = true;
+    if(A.music){ var m = A.music, v = m.volume, n = 20, i = 0, iv = setInterval(function(){ i++; m.volume = Math.max(0, v * (1 - i / n)); if(i >= n){clearInterval(iv); m.pause()} }, 6000 / n) }
+    else if(musicOn){ setTimeout(function(){setMusic(false)}, 6000) }
+    setTimeout(function(){
+      if(!soundOn) return;
+      try{c.currentTime = 0}catch(e){}
+      c.volume = 0; c.loop = true;
+      var pr = c.play(); if(pr && pr.catch) pr.catch(function(){});
+      var j = 0, iv2 = setInterval(function(){ j++; c.volume = Math.min(.8, .8 * j / 30); if(j >= 30) clearInterval(iv2) }, 100);
+      mb.textContent = '♪ Music on';
+    }, startAfter || 0);
+    return true;
+  };
   window.kFadeMusic = function(ms){
     window.kMusicDone = true;
     if(A.music){ var m = A.music, v = m.volume, n = 20, i = 0, iv = setInterval(function(){ i++; m.volume = Math.max(0, v * (1 - i / n)); if(i >= n){clearInterval(iv); m.pause()} }, ms / n) }
@@ -945,7 +948,10 @@ body.lite .grain{display:none}body.lite .k-puppet{filter:none}body.lite .lan{ani
   mb.hidden = false; mb.textContent = '♪ Music off';
   mb.addEventListener('click', function(e){
     e.stopPropagation(); soundOn = !soundOn; sfx = soundOn;
-    if(A.music){
+    if(creditsOn && A.credits){
+      if(soundOn) A.credits.play().catch(function(){}); else A.credits.pause();
+      mb.textContent = soundOn ? '♪ Music on' : '♪ Music off';
+    } else if(A.music){
       if(soundOn) A.music.play().catch(function(){}); else A.music.pause();
       mb.textContent = soundOn ? '♪ Music on' : '♪ Music off';
     } else setMusic(soundOn);
@@ -965,6 +971,7 @@ body.lite .grain{display:none}body.lite .k-puppet{filter:none}body.lite .lan{ani
   });
 
   document.addEventListener('visibilitychange', function(){
+    if(creditsOn && A.credits){ if(document.hidden) A.credits.pause(); else if(soundOn) A.credits.play().catch(function(){}); return }
     if(!entered || window.kMusicDone) return;
     if(document.hidden){ if(A.music) A.music.pause(); else if(ctx && ctx.state === 'running') ctx.suspend() }
     else if(soundOn){ if(A.music) A.music.play().catch(function(){}); else if(ctx) ctx.resume() }
@@ -1034,7 +1041,6 @@ body.lite .grain{display:none}body.lite .k-puppet{filter:none}body.lite .lan{ani
     home:['Heyyy Dami! 👋','Madam L.O has arrived o!','Come, make we tour the place 😄'],
     gallery:['These pictures dey fine o 😂','Tap any photo to enlarge am!','Who dey take these shots? 📸'],
     letter:['Read am slowly o 😌','No skipping lines!','Take your time, nobody is chasing you'],
-    gifts:['Red envelopes! 红包 🧧 Open am!','Four envelopes. Don’t miss any o!','Tap, tap, tap 🧧'],
     wishes:['Our wishes for you 🙏','Say amen! 🙌','Make a wish o, God dey listen ✨'],
     cake:['Make a wish first! 🤫','Blow every candle o!','Who wan chop cake? 🍰'],
     play:['Pop balloon small 🥲','Pop 15! I’m judging 😤','Don’t let them float away! 🎈'],
@@ -1145,16 +1151,6 @@ body.lite .grain{display:none}body.lite .k-puppet{filter:none}body.lite .lan{ani
         else { jump(); if(n % 5 === 0) say(n + ' down, ' + (15 - n) + ' to go!', 1600); else if(Math.random() < .3) say(rnd(['Pop!','Nice one!','Omo, fast hands!','🎈💥']), 1100) }
       }, 30); return;
     }
-    if((el = t.closest('[data-gift]'))){
-      var card = el.parentElement;
-      setTimeout(function(){
-        var r = card.querySelector('.gift-reveal');
-        if(!r || !r.classList.contains('open')) return;
-        var h = (card.querySelector('h3') || {}).textContent || '';
-        if(/home/i.test(h)) { mood(''); say('Aww, home is just a call away 🏡', 3800); jump() }
-        else cheer('c', rnd(['Ehen!! 🎁','Ooh, nice one!','Wow wow wow!']), 2000);
-      }, 30); return;
-    }
     if(t.closest('#pitch') && cur === 'goat'){ setTimeout(function(){cheer('c', 'SIUUUUU!!! ⚽🔥', 2600)}, 1700); return }
     if(t.closest('#relight')){ say('Again?! 😂', 1600); return }
     if(t.closest('#play-btn')){ jump(); say('Pop pop pop! 🎈', 1600); return }
@@ -1177,6 +1173,7 @@ body.lite .grain{display:none}body.lite .k-puppet{filter:none}body.lite .lan{ani
           if(!still && !document.body.classList.contains('lite')) setInterval(note, 1500);
           wander();
           setTimeout(function(){say('Follow me! 💃', 2200)}, 1600);
+          if(window.matchMedia('(hover: none)').matches) setTimeout(function(){say('Tip: swipe left to go to the next page 👉', 3600)}, 4800);
         }, 80);
       }, 4900);
     }, 900);
@@ -1197,7 +1194,7 @@ body.lite .grain{display:none}body.lite .k-puppet{filter:none}body.lite .lan{ani
     }, 3400);
     later(function(){
       o.classList.add('on'); void o.offsetWidth; o.classList.add('close');
-      if(window.kFadeMusic) window.kFadeMusic(6000);
+      if(window.kPlayCredits) window.kPlayCredits(8300);
       later(function(){ if(window.kGong) window.kGong() }, 1900);
     }, 5200);
     later(function(){ o.classList.add('end'); if(window.kGong) window.kGong(); if(window.confetti) window.confetti() }, 8200);
