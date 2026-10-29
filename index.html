@@ -135,7 +135,7 @@ body.intro-on{overflow:hidden}
 .pitch::before{content:"";position:absolute;left:50%;top:50%;width:150px;height:150px;margin:-75px;border:2px solid rgba(255,255,255,.25);border-radius:50%}
 .siu-text{position:absolute;top:18px;width:100%;text-align:center;font-family:"Cormorant Garamond",serif;font-weight:700;font-size:clamp(34px,9vw,64px);color:var(--cream);opacity:0;text-shadow:0 0 30px rgba(239,82,111,.8)}
 .siu-text.go{animation:siu 2.2s 1.8s ease-out}
-@keyframes siu{0%{opacity:0;transform:scale(.5);letter-spacing:0}25%{opacity:1}100%{opacity:0;transform:scale(1.1);letter-spacing:10px}}
+@keyframes siu{0%{opacity:0;transform:scale(.5)}25%{opacity:1}100%{opacity:0;transform:scale(1.15)}}
 .finale{max-width:640px;margin:0 auto;text-align:center}
 .finale p{color:var(--muted);line-height:1.9;margin:18px 0}
 .finale-badge{margin:24px auto;width:150px;height:150px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:"Cormorant Garamond",serif;font-size:70px;color:var(--gold);border:2px solid var(--gold);box-shadow:0 0 60px rgba(216,183,122,.3);animation:float 4s ease-in-out infinite}
@@ -185,7 +185,7 @@ body.back .page.active{animation-name:slideBack}
 @keyframes push{from{transform:scale(.94)}to{transform:scale(1.04)}}
 .cine{position:absolute;inset:0;z-index:3;display:flex;align-items:center;justify-content:center;padding:24px;text-align:center;font-family:"Cormorant Garamond",serif;font-style:italic;font-size:clamp(32px,7vw,70px);line-height:1.15;opacity:0;pointer-events:none}
 .cine.in{animation:cineLine 2.3s ease both}
-@keyframes cineLine{0%{opacity:0;letter-spacing:.1em;filter:blur(8px)}22%{opacity:1;filter:blur(0)}80%{opacity:1}100%{opacity:0;letter-spacing:.02em}}
+@keyframes cineLine{0%{opacity:0;transform:scale(1.06)}22%{opacity:1;transform:scale(1)}80%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(.99)}}
 .intro-btn{box-shadow:0 0 40px rgba(239,82,111,.35)}
 .checks{list-style:none;max-width:340px;margin:0 auto 26px;text-align:left}
 .checks li{padding:8px 0;border-bottom:1px dashed var(--border);color:var(--muted);font-family:Caveat,cursive;font-size:27px}
@@ -259,7 +259,7 @@ body.kitty-on #kitty.away{opacity:0}
 @keyframes kHop{0%,100%{transform:translateY(0)}50%{transform:translateY(-55px)}}
 @keyframes kNote{0%{opacity:0;transform:translateY(0) rotate(-10deg)}20%{opacity:.95}100%{opacity:0;transform:translateY(-70px) rotate(14deg)}}
 
-.k-puppet{position:relative;width:100%;aspect-ratio:280/330;filter:drop-shadow(0 0 2px rgba(255,241,232,.75)) drop-shadow(0 6px 7px rgba(0,0,0,.4));--k:1;--beat:1.6s}
+.k-puppet{position:relative;width:100%;aspect-ratio:280/330;--k:1;--beat:1.6s}
 .kp{position:absolute;inset:0;width:100%;height:100%;transform-origin:50% 100%;animation-duration:var(--beat);animation-timing-function:ease-in-out;animation-iteration-count:infinite}
 .kp-body{animation-name:kpRoot;transform-origin:50% 99%}
 .kp-head{animation-name:kpHead;transform-origin:49% 63%}
@@ -366,7 +366,7 @@ html{-webkit-text-size-adjust:100%}
 .nav{scrollbar-width:none}.nav::-webkit-scrollbar{display:none}
 @media(max-width:800px){.topbar{gap:6px;padding:10px 16px;padding-top:calc(10px + env(safe-area-inset-top,0px))}.brand{font-size:22px}.nav button{padding:7px 11px}}
 @media(hover:none){.btn:hover{transform:none;background:transparent}.btn.primary:hover{background:var(--red)}.photo-card:hover{transform:rotate(var(--r,-2deg)) scale(1);z-index:auto}.gift-card:hover{transform:none}.gift-card:nth-child(2):hover{transform:rotate(1deg)}.gift-card:nth-child(3):hover{transform:rotate(-1deg)}}
-body.lite .grain{display:none}body.lite .k-puppet{filter:none}body.lite .lan{animation:none}body.lite .topbar{backdrop-filter:none;background:#160509}
+body.lite .grain{display:none}body.lite .k-puppet{filter:none}body.lite .topbar{backdrop-filter:none;background:#160509}
 
 /* ===== Final polish ===== */
 html{background:#160509;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
@@ -403,6 +403,11 @@ h1,h2,h3{text-wrap:balance}p{text-wrap:pretty}
 @keyframes kpWave{from{transform:rotate(-50deg)}to{transform:rotate(-6deg)}}
 @keyframes kpHeadW{from{transform:rotate(-7deg)}to{transform:rotate(7deg)}}
 @media(prefers-reduced-motion:reduce){.tapnote{animation:none}.m-wave .kp-armR,.m-wave .kp-head{animation:none}}
+
+/* ===== Smoothness ===== */
+.topbar{-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+#kitty::before{content:"";position:absolute;left:6%;right:6%;bottom:-3px;height:13%;border-radius:50%;background:radial-gradient(closest-side,rgba(0,0,0,.55),transparent)}
+#kitty::after{content:"";position:absolute;inset:-4%;z-index:-1;border-radius:50%;background:radial-gradient(closest-side,rgba(255,241,232,.17),transparent 72%)}
 </style>
 </head>
 <body>
@@ -466,12 +471,11 @@ h1,h2,h3{text-wrap:balance}p{text-wrap:pretty}
   <div class="letter-wrap">
     <div class="letter-paper">
       
-      <h2>Oiiiiiiiiiiiii 👋 <span class="accent">Happy birthdayyy</span> 🥳❤️🤗</h2>
-      <p>One thing I genuinely admire about you is how you carry yourself through life. You’re smart, hardworking, playful 😂, and you have this way of taking on challenges, figuring things out, and pushing yourself even when things aren’t exactly going your way. I know it can’t always be easy, and I hope you give yourself credit for how far you’ve come and for the battles you’ve fought that people might not even know about.</p>
-      <p>I also really like your spirit. The way you’re so welcoming, how you can still smile even on days when you probably have a lot going on in your head, and how you somehow keep looking forward to better days. It’s a beautiful thing, honestly, and I hope life gives you as many reasons to smile as you give other people. ❤️</p>
-      <p>I pray this new year brings you more peace, growth, genuine happiness, and beautiful moments. I hope you get to achieve the things you’re working towards, discover even more about yourself, and have more reasons to be proud of the person you’re becoming. And hopefully, you get to miss home a little less 😂 and please work on your sleep schedule this year 🥲😂</p>
-      <p>Happy birthday once again. Never forget to appreciate yourself, not just for what you achieve, but for who you are. You deserve good things, and I genuinely hope this new chapter brings you plenty of them. ❤️🎂</p>
-      <div class="letter-signature">Your friend, Yusuf</div>
+      <h2>Oiiiiiiiiiiiii 👋 <span class="accent">Happy birthdayyy Madam L.O</span> 🥳❤️🤗</h2>
+      <p>One thing I genuinely admire about you is how you keep pushing yourself through life. You’re smart, hardworking, playful 😂, and always willing to take on challenges especially the SAIP, even when things aren’t easy. I hope you give yourself credit for how far you’ve come and all the battles you’ve fought.</p>
+      <p>I also like your spirit, how welcoming you are, how you keep smiling, and how you always seem to look forward to better days. ❤️ I pray this new year brings you peace, growth, happiness, and plenty of reasons to be proud of yourself.</p>
+      <p>Hopefully, you get to miss home a little less 😂 and also, try working on that sleep schedule. You don turn adult now and adults need more rest 🥲😂</p>
+      <p>Happy birthday once again! Never forget to appreciate yourself for who you are, not just what you achieve. You deserve good things, and I genuinely hope this new chapter brings you plenty of them. ❤️🎂</p>
     </div>
     <div class="letter-tools">
       <button class="btn primary" onclick="confetti()">Celebrate</button>
@@ -592,7 +596,7 @@ h1,h2,h3{text-wrap:balance}p{text-wrap:pretty}
   var SIU_DELAY = 1700;                       // ms after the tap. Raise or lower to line the shout up with the landing
   // ====================
   var done = {};
-  var lite = (navigator.deviceMemory && navigator.deviceMemory <= 2) || (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 3);
+  var lite = (navigator.deviceMemory && navigator.deviceMemory <= 2) || (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 3) || window.matchMedia('(pointer: coarse)').matches;
   if(lite) document.body.classList.add('lite');
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -750,9 +754,11 @@ h1,h2,h3{text-wrap:balance}p{text-wrap:pretty}
   function unlockAudio(){
     ['music','fw','siu','credits'].forEach(function(k){
       var a = A[k]; if(!a) return;
-      a.muted = true;
-      var pr = a.play();
-      if(pr && pr.then) pr.then(function(){a.pause(); a.currentTime = 0; a.muted = false}).catch(function(){a.muted = false});
+      try{
+        a.muted = true;
+        var pr = a.play(); if(pr && pr.catch) pr.catch(function(){});
+        a.pause(); a.muted = false;
+      }catch(e){ a.muted = false }
     });
   }
   function playFile(k){
@@ -984,12 +990,19 @@ h1,h2,h3{text-wrap:balance}p{text-wrap:pretty}
   var entered = false;
   eb.addEventListener('click', function(){
     entered = true;
-    if(A.music){A.music.volume = .6; A.music.play().then(function(){mb.textContent = '♪ Music on'}).catch(function(){})} else setMusic(true);
+    if(A.music){A.music.muted = false; A.music.volume = .6; A.music.play().then(function(){mb.textContent = '♪ Music on'}).catch(function(){})} else setMusic(true);
     intro.classList.add('leave'); document.body.classList.remove('intro-on');
     goToPage('home'); confetti();
     setTimeout(function(){intro.remove()}, 950);
   });
 
+  // If the browser blocked the music at first, start it on her next tap
+  function retryMusic(){
+    if(!entered || !soundOn || window.kMusicDone || creditsOn || !A.music || !A.music.paused) return;
+    A.music.muted = false; A.music.volume = .6;
+    var pr = A.music.play(); if(pr && pr.then) pr.then(function(){mb.textContent = '♪ Music on'}).catch(function(){});
+  }
+  document.addEventListener('pointerdown', retryMusic, {passive:true});
   document.addEventListener('visibilitychange', function(){
     if(creditsOn && A.credits){ if(document.hidden) A.credits.pause(); else if(soundOn) A.credits.play().catch(function(){}); return }
     if(!entered || window.kMusicDone) return;
