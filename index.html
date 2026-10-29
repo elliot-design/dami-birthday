@@ -385,6 +385,24 @@ h1,h2,h3{text-wrap:balance}p{text-wrap:pretty}
 .nav button{flex-shrink:1;min-width:0;padding:8px 2px;min-height:36px;text-align:center;font-size:12px;white-space:nowrap;border-color:var(--border)}
 }
 @media(max-width:360px){.nav button{font-size:11px}}
+
+/* ===== Round 5 ===== */
+.tapnote{margin-top:6px;text-align:center;font-family:Caveat,cursive;font-size:24px;color:var(--gold);opacity:.9;animation:tapPulse 2.6s ease-in-out infinite}
+@keyframes tapPulse{0%,100%{opacity:.55;transform:translateY(0)}50%{opacity:1;transform:translateY(-3px)}}
+.wish-item:nth-child(7){animation-delay:.6s;grid-column:1/-1;border-color:rgba(216,183,122,.6);background:rgba(216,183,122,.08)}
+.letter-paper h2{line-height:1.12}
+#o-peek{position:absolute;left:50%;bottom:0;z-index:6;width:150px;margin-left:-75px;transform:translateY(105%);transition:transform .9s cubic-bezier(.2,1.2,.3,1);pointer-events:none}
+#o-peek.up{transform:translateY(34%)}
+.o-pk .k-puppet{width:100%}
+.o-pbub{position:absolute;bottom:100%;left:50%;width:max-content;max-width:min(240px,80vw);margin-bottom:10px;padding:10px 14px;border-radius:14px;background:#fff1e8;color:#3a0c16;font:600 14px/1.35 "DM Sans",sans-serif;text-align:center;box-shadow:0 8px 20px rgba(0,0,0,.4);opacity:0;transform:translateX(-50%) scale(.85);transition:opacity .3s,transform .3s}
+.o-pbub::after{content:"";position:absolute;top:100%;left:50%;margin-left:-7px;border:7px solid transparent;border-top-color:#fff1e8}
+#o-peek.talk .o-pbub{opacity:1;transform:translateX(-50%) scale(1)}
+.m-wave .kp{animation:none}
+.m-wave .kp-armR{animation:kpWave .5s ease-in-out infinite alternate}
+.m-wave .kp-head{animation:kpHeadW 1.1s ease-in-out infinite alternate}
+@keyframes kpWave{from{transform:rotate(-50deg)}to{transform:rotate(-6deg)}}
+@keyframes kpHeadW{from{transform:rotate(-7deg)}to{transform:rotate(7deg)}}
+@media(prefers-reduced-motion:reduce){.tapnote{animation:none}.m-wave .kp-armR,.m-wave .kp-head{animation:none}}
 </style>
 </head>
 <body>
@@ -411,7 +429,7 @@ h1,h2,h3{text-wrap:balance}p{text-wrap:pretty}
   <nav class="nav" aria-label="Main navigation">
     <button class="active" data-page="home">Countdown</button>
     <button data-page="gallery">Memories</button>
-    <button data-page="letter">A Letter</button>
+    <button data-page="letter">Messages</button>
     <button data-page="cake">Cake</button>
     <button data-page="play">Play</button>
     <button data-page="goat">GOAT</button>
@@ -433,6 +451,7 @@ h1,h2,h3{text-wrap:balance}p{text-wrap:pretty}
       <div class="time-unit"><strong id="seconds">00</strong><span>Seconds</span></div>
     </div>
   </div>
+  <p class="tapnote">please tap till the end 😁</p>
 </section>
 
 <section class="page" id="gallery">
@@ -447,13 +466,12 @@ h1,h2,h3{text-wrap:balance}p{text-wrap:pretty}
   <div class="letter-wrap">
     <div class="letter-paper">
       
-      <h2>Dear <span class="accent">Dami,</span></h2>
-      <p>So you are 18 now. Congratulations. Nobody warned you the only upgrade is that people can finally blame you for things.</p>
-      <p>I could have just sent a text, but I wanted to do something a bit extra. You have been a good friend to me, and I do not say that enough.</p>
-      <p>Eat the cake, ignore whatever is stressing you for one day, and let people spoil you a little. It will all still be there tomorrow.</p>
-      <p>Happy birthday, Dami. Make this year loud.</p>
+      <h2>Oiiiiiiiiiiiii 👋 <span class="accent">Happy birthdayyy</span> 🥳❤️🤗</h2>
+      <p>One thing I genuinely admire about you is how you carry yourself through life. You’re smart, hardworking, playful 😂, and you have this way of taking on challenges, figuring things out, and pushing yourself even when things aren’t exactly going your way. I know it can’t always be easy, and I hope you give yourself credit for how far you’ve come and for the battles you’ve fought that people might not even know about.</p>
+      <p>I also really like your spirit. The way you’re so welcoming, how you can still smile even on days when you probably have a lot going on in your head, and how you somehow keep looking forward to better days. It’s a beautiful thing, honestly, and I hope life gives you as many reasons to smile as you give other people. ❤️</p>
+      <p>I pray this new year brings you more peace, growth, genuine happiness, and beautiful moments. I hope you get to achieve the things you’re working towards, discover even more about yourself, and have more reasons to be proud of the person you’re becoming. And hopefully, you get to miss home a little less 😂 and please work on your sleep schedule this year 🥲😂</p>
+      <p>Happy birthday once again. Never forget to appreciate yourself, not just for what you achieve, but for who you are. You deserve good things, and I genuinely hope this new chapter brings you plenty of them. ❤️🎂</p>
       <div class="letter-signature">Your friend, Yusuf</div>
-      <p style="margin-top:18px">P.S. I know you are missing home. Missing it does not mean you are not coping, it means home mattered. Call your people today, eat something that tastes like back home, and remember you are not here alone.</p>
     </div>
     <div class="letter-tools">
       <button class="btn primary" onclick="confetti()">Celebrate</button>
@@ -465,7 +483,7 @@ h1,h2,h3{text-wrap:balance}p{text-wrap:pretty}
 
 <section class="page" id="wishes">
   <div class="section-heading">
-    <h2>Six <span class="accent">wishes.</span></h2>
+    <h2>Seven <span class="accent">wishes.</span></h2>
   </div>
   <div class="wish-list">
     <div class="wish-item"><span class="wish-number">01</span><p>May your network always be strong and your data never finish.</p></div>
@@ -474,6 +492,7 @@ h1,h2,h3{text-wrap:balance}p{text-wrap:pretty}
     <div class="wish-item"><span class="wish-number">04</span><p>May stress miss your address.</p></div>
     <div class="wish-item"><span class="wish-number">05</span><p>May you laugh so hard your face hurts, at least once a week.</p></div>
     <div class="wish-item"><span class="wish-number">06</span><p>May this be the best year yet, and may the next one beat it.</p></div>
+    <div class="wish-item"><span class="wish-number">07</span><p>I pray God grants you all your heart desires 🤗</p></div>
   </div>
   <div class="wish-footer"><button class="btn primary" onclick="confetti()">Make a wish</button></div>
 </section>
@@ -540,6 +559,7 @@ h1,h2,h3{text-wrap:balance}p{text-wrap:pretty}
     <p class="o-zh" lang="zh">心想事成 · 万事如意</p><p class="o-r">may every wish come true, may everything go your way</p>
   </div></div>
   <div class="o-final"><p class="o-f1">Happy World Dami Day 🎉🎉🎉🎉</p><p class="o-zh" lang="zh">生日快乐</p><button class="btn gold" id="o-again">Watch it again</button></div>
+  <div id="o-peek"><div class="o-pbub">Also I almost forgot, good luck in your commed exam 😁</div><div class="o-pk"></div></div>
   <button class="o-skip" id="o-skip">Skip</button>
 </div>
 <div id="kbubble" aria-hidden="true"></div>
@@ -1183,7 +1203,18 @@ h1,h2,h3{text-wrap:balance}p{text-wrap:pretty}
   // ===== Dramatic ending =====
   var o = document.getElementById('outro'), oT = [];
   function later(f, ms){oT.push(setTimeout(f, ms))}
-  function finalCard(){ oT.forEach(clearTimeout); o.classList.remove('roll'); o.classList.add('final') }
+  var peeked = false;
+  function outroKitty(){
+    var op = document.getElementById('o-peek'), slot = op.querySelector('.o-pk');
+    var cl = puppet.cloneNode(true); cl.className = 'k-puppet m-wave';
+    slot.innerHTML = ''; slot.appendChild(cl);
+    op.classList.add('up');
+    setTimeout(function(){ op.classList.add('talk') }, 900);
+  }
+  function finalCard(){
+    oT.forEach(clearTimeout); o.classList.remove('roll'); o.classList.add('final');
+    if(!peeked){ peeked = true; setTimeout(outroKitty, 2800) }
+  }
   document.getElementById('roll').addEventListener('click', function(){
     if(over) return;
     over = true; clearTimeout(timer);
