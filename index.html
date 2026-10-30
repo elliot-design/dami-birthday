@@ -660,7 +660,7 @@ h1,h2,h3{text-wrap:balance}p{text-wrap:pretty}
     if(isToday){
       ['days','hours','minutes','seconds'].forEach(function(id){document.getElementById(id).textContent = '00'});
       msg.textContent = 'It is today! Happy birthday, Dami!';
-      if(!celebrated){celebrated = true; setTimeout(confetti, 600)}
+      if(!celebrated){celebrated = true; setTimeout(function(){ if(window.confetti) window.confetti() }, 600)}
       return;
     }
     var s = Math.floor(d/1000);
